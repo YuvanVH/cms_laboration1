@@ -1,0 +1,15 @@
+# # Ignorera hela WordPress-installationen, utom temat
+lab1/*
+!lab1/wp-content/themes/
+
+# # Ignorera WordPress-kärnfiler och andra onödiga filer
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/plugins/
+
+# # Andra onödiga filer
+.DS_Store
+Thumbs.db
+*.log
+debug.log
