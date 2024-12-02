@@ -11,3 +11,5 @@ function vanessa_labb_enqueue_scripts()
   wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array('jquery'), null, true);
 }
 add_action('wp_enqueue_scripts', 'vanessa_labb_enqueue_scripts');
+
+// Ska kolla upp: wp_dequeue_style() ????
