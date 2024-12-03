@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php
+/* Template Name: Hem */
+get_header(); ?>
 
 <main>
   <section>
