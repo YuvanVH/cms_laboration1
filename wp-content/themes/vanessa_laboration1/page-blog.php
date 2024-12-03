@@ -10,37 +10,24 @@ get_header();
         <div id="primary" class="col-xs-12 col-md-9">
           <h1>Blogg</h1>
 
-          <?php
-          // Loopar igenom blogginlägg
-          if (have_posts()) :
+          <?php if (have_posts()) :
             while (have_posts()) :
-              the_post();
-          ?>
+              the_post(); ?>
               <article>
                 <?php if (has_post_thumbnail()) : ?>
-                  <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" />
+                  <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
                 <?php endif; ?>
-
-                <h2 class="title">
-                  <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                </h2>
+                <h1 class="title"><?php the_title(); ?></h1>
                 <ul class="meta">
-                  <li>
-                    <i class="fa fa-calendar"></i> <?php echo get_the_date(); ?>
-                  </li>
-                  <li>
-                    <i class="fa fa-user"></i>
-                    <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Inlägg av <?php the_author(); ?>" rel="author"><?php the_author(); ?></a>
-                  </li>
-                  <li>
-                    <i class="fa fa-tag"></i>
-                    <?php the_category(', '); ?>
-                  </li>
+                  <li><i class="fa fa-calendar"></i><?php echo get_the_date(); ?></li>
+                  <li><i class="fa fa-user"></i> <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Inlägg av <?php the_author(); ?>"><?php the_author(); ?></a></li>
+                  <li><i class="fa fa-tag"></i> <?php the_category(', '); ?></li>
                 </ul>
-                <p><?php the_excerpt(); ?></p>
+                <div class="content">
+                  <?php the_content(); ?>
+                </div>
               </article>
-          <?php
-            endwhile;
+          <?php endwhile;
 
             // Pagination
             the_posts_pagination(array(
