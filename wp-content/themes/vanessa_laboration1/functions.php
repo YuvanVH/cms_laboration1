@@ -23,24 +23,37 @@ function labb1_setup_theme()
 }
 add_action('after_setup_theme', 'labb1_setup_theme');
 
-
-//sidbar
+// Funktion för att registrera widgetområde för sidomenyn
+// Funktion för att registrera widgetområden
 function labb1_widgets_init()
 {
+  // Widgetområde för blogg-sidomenyn
   register_sidebar(array(
-    'name'          => 'Sidebar',
+    'name' => __('Blogg Sidebar', 'textdomain'),
+    'id' => 'blog-sidebar',
+    'description' => __('Sidopanel för bloggsidan.', 'textdomain'),
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h2 class="widgettitle">',
+    'after_title' => '</h2>',
+  ));
+
+  // Widgetområde för standard-sidebar
+  register_sidebar(array(
+    'name'          => __('Sidebar', 'ditt-tema'),
     'id'            => 'sidebar-1',
-    'description'   => 'Sidebar for the theme',
+    'description'   => __('Sidebar för temat', 'ditt-tema'),
     'before_widget' => '<div class="widget">',
     'after_widget'  => '</div>',
     'before_title'  => '<h4>',
     'after_title'   => '</h4>',
   ));
 
+  // Widgetområde för footern
   register_sidebar(array(
-    'name'          => 'Footer',
+    'name'          => __('Footer', 'ditt-tema'),
     'id'            => 'footer-1',
-    'description'   => 'Footer widget area',
+    'description'   => __('Footer-widgetområde', 'ditt-tema'),
     'before_widget' => '<div class="widget">',
     'after_widget'  => '</div>',
     'before_title'  => '<h4>',
