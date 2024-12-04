@@ -24,7 +24,6 @@ function labb1_setup_theme()
 add_action('after_setup_theme', 'labb1_setup_theme');
 
 // Funktion för att registrera widgetområde för sidomenyn
-// Funktion för att registrera widgetområden
 function labb1_widgets_init()
 {
   // Widgetområde för blogg-sidomenyn
