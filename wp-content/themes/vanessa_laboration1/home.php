@@ -10,28 +10,21 @@ get_header();
         <div id="primary" class="col-xs-12 col-md-9">
           <h1>Blogg</h1>
 
-          <?php
-          // Hämta de senaste 5 blogginläggen
-          $args = array(
-            'post_type' => 'post',  // Hämtar vanliga inlägg
-            'posts_per_page' => 5,  // Visar 5 inlägg per sida
-          );
-          $query = new WP_Query($args);
-
-          if ($query->have_posts()) :
-            while ($query->have_posts()) : $query->the_post();
-          ?>
+          <?php if (have_posts()) : ?>
+            <?php while (have_posts()) : the_post(); ?>
               <article>
-                <?php
-                // Aktivera stöd för utvalda bilder
-                add_theme_support('post-thumbnails');
-                ?>
+                <?php if (has_post_thumbnail()) : ?>
+                  <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                <?php endif; ?>
                 <h2 class="title">
                   <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                 </h2>
                 <ul class="meta">
                   <li><i class="fa fa-calendar"></i> <?php echo get_the_date(); ?></li>
-                  <li><i class="fa fa-user"></i> <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Inlägg av <?php the_author(); ?>"><?php the_author(); ?></a></li>
+                  <li><i class="fa fa-user"></i>
+                    <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" title="Inlägg av <?php the_author(); ?>"><?php the_author(); ?>
+                    </a>
+                  </li>
                   <li><i class="fa fa-tag"></i> <?php the_category(', '); ?></li>
                 </ul>
                 <p><?php the_excerpt(); ?></p>
@@ -39,54 +32,29 @@ get_header();
             <?php endwhile; ?>
 
             <!-- Paginering -->
-            <nav class="navigation pagination">
+            <nav class="navigation pagination" aria-label="Sidonumrering för inlägg">
+              <h2 class="screen-reader-text">Sidonumrering för inlägg</h2>
               <?php
-              the_posts_pagination(array(
-                'mid_size'  => 2,
-                'prev_text' => __('« Föregående', 'textdomain'),
-                'next_text' => __('Nästa »', 'textdomain'),
+              echo get_the_posts_pagination(array(
+                'prev_text' => 'Föregående', // Text för föregående länk
+                'next_text' => 'Nästa', // Text för nästa länk
               ));
               ?>
             </nav>
 
+
           <?php else : ?>
             <p>Inga blogginlägg hittades.</p>
           <?php endif; ?>
-          <?php wp_reset_postdata(); ?>
         </div>
 
+        <!-- Sidofält -->
         <aside id="secondary" class="col-xs-12 col-md-3">
-          <div id="sidebar">
-            <ul>
-              <li id="search-2" class="widget widget_search">
-                <form class="searchform">
-                  <div>
-                    <label class="screen-reader-text">Sök efter:</label>
-                    <input type="text" />
-                    <input type="submit" value="Sök" />
-                  </div>
-                </form>
-              </li>
-            </ul>
-
-            <ul role="navigation">
-              <?php
-              // Visa sidor från WordPress
-              wp_list_pages(array(
-                'title_li' => '<h2 class="widgettitle">Sidor</h2>',
-              ));
-              ?>
-            </ul>
-
-            <ul>
-              <?php
-              // Visa kategorier
-              wp_list_categories(array(
-                'title_li' => '<h2 class="widgettitle">Kategorier</h2>',
-              ));
-              ?>
-            </ul>
-          </div>
+          <?php if (is_active_sidebar('sidebar-1')) : ?>
+            <?php dynamic_sidebar('sidebar-1'); ?>
+          <?php else : ?>
+            <p>Lägg till widgets i adminpanelen.</p>
+          <?php endif; ?>
         </aside>
       </div>
     </div>

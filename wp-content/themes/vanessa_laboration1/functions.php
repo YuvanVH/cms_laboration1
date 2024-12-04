@@ -14,6 +14,8 @@ add_action('wp_enqueue_scripts', 'vanessa_labb_enqueue_scripts');
 
 // Ska kolla upp: wp_dequeue_style() ????
 
+//Thumbnails (bilder och layout för inlägg)
+add_theme_support('post-thumbnails');
 
 //navigations menu
 function labb1_setup_theme()
@@ -28,13 +30,12 @@ function labb1_widgets_init()
 {
   // Widgetområde för blogg-sidomenyn
   register_sidebar(array(
-    'name' => __('Blogg Sidebar', 'textdomain'),
-    'id' => 'blog-sidebar',
-    'description' => __('Sidopanel för bloggsidan.', 'textdomain'),
-    'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    'after_widget' => '</div>',
-    'before_title' => '<h2 class="widgettitle">',
-    'after_title' => '</h2>',
+    'name'          => 'Sidebar 1',
+    'id'            => 'sidebar-1',
+    'before_widget' => '<div class="widget">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => '</h2>',
   ));
 
   // Widgetområde för standard-sidebar
