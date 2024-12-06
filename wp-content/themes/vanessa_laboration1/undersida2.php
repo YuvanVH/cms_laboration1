@@ -10,12 +10,14 @@ get_header(); ?>
           <div><?php the_content(); ?></div>
         </div>
         <aside id="secondary" class="col-xs-12 col-md-3 col-md-pull-9">
-          <?php
-          wp_nav_menu(array(
-            'theme_location' => 'side-menu',
-            'menu_class' => 'side-menu',
-          ));
-          ?>
+          <ul id="menu-sidomeny" class="side-menu">
+            <?php
+            wp_nav_menu(array(
+              'theme_location' => 'side-menu',
+              'menu_class' => 'side-menu',
+            ));
+            ?>
+          </ul>
         </aside>
       </div>
     </div>

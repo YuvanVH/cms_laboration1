@@ -50,14 +50,35 @@ get_header();
           <?php endif; ?>
         </div>
 
-        <!-- Sidofält -->
+        <!-- Dynamisk sidopanel -->
         <aside id="secondary" class="col-xs-12 col-md-3">
-          <?php if (is_active_sidebar('sidebar-1')) : ?>
-            <?php dynamic_sidebar('sidebar-1'); ?>
-          <?php else : ?>
-            <p>Lägg till widgets i adminpanelen.</p>
-          <?php endif; ?>
+          <div id="sidebar">
+            <!-- Sök widget -->
+            <ul>
+              <?php if (is_active_sidebar('search-widget')) : ?>
+                <?php dynamic_sidebar('search-widget'); ?>
+              <?php endif; ?>
+            </ul>
+
+            <ul role="navigation">
+              <!-- Sidor widget -->
+              <?php if (is_active_sidebar('pages-widget')) : ?>
+                <?php dynamic_sidebar('pages-widget'); ?>
+              <?php endif; ?>
+
+              <!-- Arkiv widget -->
+              <?php if (is_active_sidebar('archives-widget')) : ?>
+                <?php dynamic_sidebar('archives-widget'); ?>
+              <?php endif; ?>
+
+              <!-- Kategorier widget -->
+              <?php if (is_active_sidebar('categories-widget')) : ?>
+                <?php dynamic_sidebar('categories-widget'); ?>
+              <?php endif; ?>
+            </ul>
+          </div>
         </aside>
+
       </div>
     </div>
   </section>
