@@ -8,7 +8,7 @@ get_header();
     <div class="container">
       <div class="row">
         <div id="primary" class="col-xs-12 col-md-9">
-          <h1>Blogg</h1>
+          <h1>Blogg </h1>
 
           <?php if (have_posts()) : ?>
             <?php while (have_posts()) : the_post(); ?>
@@ -35,9 +35,13 @@ get_header();
             <nav class="navigation pagination" aria-label="Sidonumrering för inlägg">
               <h2 class="screen-reader-text">Sidonumrering för inlägg</h2>
               <?php
-              echo get_the_posts_pagination(array(
-                'prev_text' => 'Föregående', // Text för föregående länk
-                'next_text' => 'Nästa', // Text för nästa länk
+              echo paginate_links(array(
+                'mid_size'           => 1,
+                'prev_text'          => '<span class="prev page-numbers">Föregående</span>',
+                'next_text'          => '<span class="next page-numbers">Nästa</span>',
+                'type'               => 'plain',
+                'before_page_number' => '<span class="page-numbers">',
+                'after_page_number'  => '</span>',
               ));
               ?>
             </nav>

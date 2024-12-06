@@ -1,7 +1,10 @@
 <?php
+
+wp_enqueue_style('tema-style', get_stylesheet_uri(), array(), '1.1'); //felsökning
+
 function vanessa_labb_enqueue_scripts()
 {
-  // Lägg till CSS (tror jag)
+  // Lägg till CSS
   wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), null);
   wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.css', array(), null);
   wp_enqueue_style('style', get_template_directory_uri() . '/css/style.css', array(), null);
@@ -12,44 +15,30 @@ function vanessa_labb_enqueue_scripts()
 }
 add_action('wp_enqueue_scripts', 'vanessa_labb_enqueue_scripts');
 
-// Ska kolla upp: wp_dequeue_style() ????
-
-//Thumbnails (bilder och layout för inlägg)
-add_theme_support('post-thumbnails');
-
-//navigations menu
+// Aktivera stöd för thumbnails och menyer
 function labb1_setup_theme()
 {
+  add_theme_support('post-thumbnails');
   add_theme_support('menus');
   register_nav_menu('primary_menu', 'Primary Menu');
+
+  // Ta bort blockbaserade widgets (om det behövs)
+  remove_theme_support('widgets-block-editor');
 }
 add_action('after_setup_theme', 'labb1_setup_theme');
 
-// Funktion för att registrera widgetområde för sidomenyn
+// Registrera widgetområden
 function labb1_widgets_init()
 {
-  // Widgetområde för blogg-sidomenyn
   register_sidebar(array(
     'name'          => 'Sidebar 1',
     'id'            => 'sidebar-1',
     'before_widget' => '<div class="widget">',
     'after_widget'  => '</div>',
-    'before_title'  => '<h2 class="widget-title">',
+    'before_title'  => '<h2 class="widgettitle">',
     'after_title'   => '</h2>',
   ));
 
-  // Widgetområde för standard-sidebar
-  register_sidebar(array(
-    'name'          => __('Sidebar', 'ditt-tema'),
-    'id'            => 'sidebar-1',
-    'description'   => __('Sidebar för temat', 'ditt-tema'),
-    'before_widget' => '<div class="widget">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h4>',
-    'after_title'   => '</h4>',
-  ));
-
-  // Widgetområde för footern
   register_sidebar(array(
     'name'          => __('Footer', 'ditt-tema'),
     'id'            => 'footer-1',
