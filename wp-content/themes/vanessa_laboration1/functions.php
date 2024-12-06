@@ -1,7 +1,4 @@
 <?php
-
-wp_enqueue_style('tema-style', get_stylesheet_uri(), array(), '1.1'); //felsökning
-
 function vanessa_labb_enqueue_scripts()
 {
   // Lägg till CSS
@@ -26,6 +23,19 @@ function labb1_setup_theme()
   remove_theme_support('widgets-block-editor');
 }
 add_action('after_setup_theme', 'labb1_setup_theme');
+
+// Anpassa pagineringen för att matcha HTML-struktur
+function labb1_custom_pagination($template)
+{
+  // Byt HTML-strukturen till statiska ver
+  $template = '
+    <nav class="navigation pagination" aria-label="Sidonumrering för inlägg">
+        <h2 class="screen-reader-text">Sidonumrering för inlägg</h2>
+        %3$s
+    </nav>';
+  return $template;
+}
+add_filter('navigation_markup_template', 'labb1_custom_pagination');
 
 // Registrera widgetområden
 function labb1_widgets_init()

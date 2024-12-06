@@ -35,17 +35,15 @@ get_header();
             <nav class="navigation pagination" aria-label="Sidonumrering för inlägg">
               <h2 class="screen-reader-text">Sidonumrering för inlägg</h2>
               <?php
-              echo paginate_links(array(
+              echo get_the_posts_pagination(array(
                 'mid_size'           => 1,
                 'prev_text'          => '<span class="prev page-numbers">Föregående</span>',
                 'next_text'          => '<span class="next page-numbers">Nästa</span>',
-                'type'               => 'plain',
                 'before_page_number' => '<span class="page-numbers">',
                 'after_page_number'  => '</span>',
               ));
               ?>
             </nav>
-
 
           <?php else : ?>
             <p>Inga blogginlägg hittades.</p>
