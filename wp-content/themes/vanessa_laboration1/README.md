@@ -129,3 +129,17 @@ Kursmål kopplade till Labb 1:
 - Kompetenser
 - Självständigt skapa eller vidareutveckla en webbplats i CMS
 - Självständigt administrera en webbplats i WordPress eller Drupal samt hantera användare
+
+__Senaste 6/12__
+
+Det jag inte hinner med:
+
+- Navigationsmenyer ska kunna styras ifrån wp-admin Appearence-> Menus.
+
+- Info i footer och sidebar ska kunna styras ifrån wp-admin Appearence-> Widgets.
+
+- Temat ska inte innehålla några bildfiler
+
+- Ingen CSS eller Javascript ska skrivas eller redigeras.
+
+- Befintliga CSS och Javascript-filer ska laddas in med hjälp av wp_enqueue_scripts-kroken
