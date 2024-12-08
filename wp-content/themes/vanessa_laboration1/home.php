@@ -36,7 +36,7 @@ get_header();
               <h2 class="screen-reader-text">Sidonumrering för inlägg</h2>
               <?php
               echo get_the_posts_pagination(array(
-                'mid_size'           => 1,
+                'mid_size'           => 2,
                 'prev_text'          => '<span class="prev page-numbers">Föregående</span>',
                 'next_text'          => '<span class="next page-numbers">Nästa</span>',
                 'before_page_number' => '<span class="page-numbers">',

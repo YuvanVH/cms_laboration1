@@ -10,7 +10,10 @@ get_header(); ?>
           <div><?php the_content(); ?></div>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-6">
-          <img src="<?php echo get_template_directory_uri(); ?>/img/photo.jpg" alt="Image">
+          <!-- Visa utvald bild -->
+          <?php if (has_post_thumbnail()) : ?>
+            <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+          <?php endif; ?>
         </div>
       </div>
     </div>

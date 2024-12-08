@@ -45,9 +45,32 @@
                     <?php endif; ?>
                 </div>
 
+                <!-- Dynamisk sidopanel -->
                 <aside id="secondary" class="col-xs-12 col-md-3">
                     <div id="sidebar">
-                        <?php get_sidebar(); ?>
+                        <!-- Sök widget -->
+                        <ul>
+                            <?php if (is_active_sidebar('search-widget')) : ?>
+                                <?php dynamic_sidebar('search-widget'); ?>
+                            <?php endif; ?>
+                        </ul>
+
+                        <ul role="navigation">
+                            <!-- Sidor widget -->
+                            <?php if (is_active_sidebar('pages-widget')) : ?>
+                                <?php dynamic_sidebar('pages-widget'); ?>
+                            <?php endif; ?>
+
+                            <!-- Arkiv widget -->
+                            <?php if (is_active_sidebar('archives-widget')) : ?>
+                                <?php dynamic_sidebar('archives-widget'); ?>
+                            <?php endif; ?>
+
+                            <!-- Kategorier widget -->
+                            <?php if (is_active_sidebar('categories-widget')) : ?>
+                                <?php dynamic_sidebar('categories-widget'); ?>
+                            <?php endif; ?>
+                        </ul>
                     </div>
                 </aside>
             </div>
