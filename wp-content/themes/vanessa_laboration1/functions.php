@@ -1,5 +1,5 @@
 <?php
-function vanessa_labb_enqueue_scripts()
+function vanessa_labb1_enqueue_scripts()
 {
   // Lägg till CSS
   wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.css', array(), null);
@@ -10,7 +10,49 @@ function vanessa_labb_enqueue_scripts()
   wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery.js', array(), null, true);
   wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array('jquery'), null, true);
 }
-add_action('wp_enqueue_scripts', 'vanessa_labb_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'vanessa_labb1_enqueue_scripts');
+
+// Fattar inte... ser ut att den inte behövs användas dessa funktioner nedan. hittar ej vart de ska implementeras
+
+// function labb1_excerpt_length($length)
+// {
+//   return 20; // längd för utdrag exempel
+// }
+// add_filter('excerpt_length', 'labb1_excerpt_length');
+
+// bra funktion. men liknar inte den statiska sidan så kommenterar bort den
+// function labb1_excerpt_more($more)
+// {
+//   return '... <a href="' . get_permalink() . '">Läs mer</a>';
+// }
+// add_filter('excerpt_more', 'labb1_excerpt_more');
+
+// function labb1_gratis_cleanup_head()
+// {
+//   remove_action('wp_head', 'wp_generator'); // Tar bort WordPress version
+// }
+// add_action('init', 'labb1_gratis_cleanup_head');
+
+// inget jag för tillfället vill ta bort
+// function remove_unwanted_styles() {
+//   if (is_page('no-style')) {
+//     wp_dequeue_style('theme-style');
+//   }
+// }
+// add_action('wp_enqueue_scripts', 'remove_unwanted_styles');
+
+
+
+function labb_1_nav_menu_css_class($classes, $item, $args, $depth)
+{
+  // Anpassa klasser för menyalternativ - work in progress
+  if ($args->theme_location == 'primary_menu') {
+    $classes[] = 'custom-class';
+  }
+  return $classes;
+}
+add_filter('nav_menu_css_class', 'labb_1_nav_menu_css_class', 10, 4);
+
 
 // Aktivera stöd för thumbnails o menyer
 function labb1_setup_theme()
@@ -25,7 +67,7 @@ function labb1_setup_theme()
 add_action('after_setup_theme', 'labb1_setup_theme');
 
 // Anpassa pagineringen för att matcha HTML-struktur
-function labb1_custom_pagination($template)
+function labb1_navigation_markup_template($template)
 {
   // Byt HTML-strukturen till statiska ver
   $template = '
@@ -35,7 +77,15 @@ function labb1_custom_pagination($template)
     </nav>';
   return $template;
 }
-add_filter('navigation_markup_template', 'labb1_custom_pagination');
+add_filter('navigation_markup_template', 'labb1_navigation_markup_template');
+
+// inaktivera blockwidgets för användare i blockredigeraren
+function disable_block_widgets()
+{
+  remove_theme_support('widgets-block-editor');
+}
+add_action('after_setup_theme', 'disable_block_widgets');
+
 
 // Registrera widgetområden
 function labb1_widgets_init()
@@ -45,15 +95,6 @@ function labb1_widgets_init()
     'name'          => 'Sök Widget',
     'id'            => 'search-widget',
     'before_widget' => '<li id="search-2" class="widget widget_search">',
-    'after_widget'  => '</li>',
-    'before_title'  => '<h2 class="widgettitle">',
-    'after_title'   => '</h2>',
-  ));
-  // Registrera andra widgets (exempelvis för sidor, arkiv etc.)
-  register_sidebar(array(
-    'name'          => 'Sidopanel Meny',
-    'id'            => 'sidebar-menu',
-    'before_widget' => '<li class="widget widget_nav_menu">',
     'after_widget'  => '</li>',
     'before_title'  => '<h2 class="widgettitle">',
     'after_title'   => '</h2>',
