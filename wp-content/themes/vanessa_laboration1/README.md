@@ -70,7 +70,7 @@ Kursmål kopplade till Labb 1:
 - Självständigt skapa eller vidareutveckla en webbplats i CMS
 - Självständigt administrera en webbplats i WordPress eller Drupal samt hantera användare
 
-__Senaste 6/12__
+__Senaste 8/12__
 
 Det jag inte hinner med (svårt att implementera):
 
