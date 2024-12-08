@@ -68,6 +68,16 @@ function labb1_widgets_init()
     'after_title'   => '</h2>',
   ));
 
+  // Undersidor sidomenu
+  register_sidebar(array(
+    'name'          => 'Undersida Sidomeny',
+    'id'            => 'undersida-sidebar',
+    'before_widget' => '<div id="%1$s" class="%2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h2 class="widgettitle">',
+    'after_title'   => '</h2>',
+  ));
+
   // Registrera widget för arkiv
   register_sidebar(array(
     'name'          => 'Arkiv Widget',
