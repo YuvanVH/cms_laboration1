@@ -36,66 +36,6 @@ Tips:
 - [x]  - Skapa en tema-mapp namn_laboration1 och skapa de nödvändiga filerna i denna.
 - [ ]  - Ni kommer att få info om de funktioner och kroknamn som räcker till för att lösa uppgiften.
 
-
-**Funktioner och Kroknamn (funktioner.md)**
-    “Dessa funktioner bör räcka till för att lösa uppgiften. De funktioner som börjar med labb_1 är till för olika action/filter i functions.php. Kroknamnen är samma som slutet på funktionerna. “
-
-    (notera att jag inte har checkat in allt på listan men som finns i koden)
-
-    - [x]  add_action()
-    - [ ]  add_filter()
-    - [x]  add_theme_support()
-    - [ ]  body_class()
-    - [ ]  ~~date()~~ Kanske tas bort????
-    - [x]  disable_block_widgets()
-    - [x]  dynamic_sidebar()
-    - [x]  function()
-    - [ ]  get_bloginfo()
-    - [x]  get_footer()
-    - [x]  get_header()
-    - [x]  get_search_form()
-    - [ ]  get_sidebar()
-    - [x]  get_template_directory_uri()
-    - [ ]  get_the_author_posts_link()
-    - [ ]  get_the_category_list()
-    - [x]  get_the_date()
-    - [x]  get_the_posts_pagination()
-    - [x]  have_posts()
-    - [ ]  home_url()
-    - [ ]  ~~in_array()~~ Kanske tas bort????
-    - [ ]  labb_1_nav_menu_css_class()
-    - [x]  labb1_after_setup_theme()
-    - [ ]  labb1_excerpt_length()
-    - [ ]  labb1_excerpt_more()
-    - [ ]  labb1_gratis_cleanup_head()
-    - [ ]  labb1_navigation_markup_template()
-    - [x]  labb1_widgets_init()
-    - [ ]  labb1_wp_enqueue_scripts()
-    - [x]  register_nav_menu()
-    - [ ]  register_sidebar()
-    - [ ]  remove_action()
-    - [ ]  remove_filter()
-    - [ ]  remove_theme_support()
-    - [ ]  single_post_title()
-    - [ ]  the_archive_title()
-    - [x]  the_category()
-    - [ ]  the_content()
-    - [x]  the_date()
-    - [x]  the_excerpt()
-    - [x]  the_permalink()
-    - [ ]  the_post_thumbnail_url()
-    - [ ]  the_post()
-    - [ ]  the_search_query()
-    - [ ]  the_title()
-    - [ ]  while()
-    - [ ]  wp_body_open()
-    - [ ]  wp_dequeue_style()
-    - [x]  wp_enqueue_script()
-    - [x]  wp_enqueue_style()
-    - [x]  wp_footer()
-    - [x]  wp_head()
-    - [x]  wp_nav_menu()
-
 Git:
 - [x]  Skapa ett nytt repo: "cms_laboration1" och bjud in ian.hellgren@iths.se
 - [x]  använd en .gitignore-fil som ser till att endast "wp-content"-mappen pushas till git.
@@ -132,14 +72,20 @@ Kursmål kopplade till Labb 1:
 
 __Senaste 6/12__
 
-Det jag inte hinner med:
+Det jag inte hinner med (svårt att implementera):
 
-- Navigationsmenyer ska kunna styras ifrån wp-admin Appearence-> Menus.
+- [ ]  remove_action()
+- [ ]  remove_filter()
+- [ ]  the_archive_title()
 
-- Info i footer och sidebar ska kunna styras ifrån wp-admin Appearence-> Widgets.
+Funtioner jag tycker är lite fövirrande att implementera (finns på functions.php):
 
-- Temat ska inte innehålla några bildfiler
+- labb1_excerpt_length($length)
+- labb1_excerpt_more($more)
+- labb1_gratis_cleanup_head()
+- remove_unwanted_styles()
 
-- Ingen CSS eller Javascript ska skrivas eller redigeras.
+bortagna funtioner och krokar:
 
-- Befintliga CSS och Javascript-filer ska laddas in med hjälp av wp_enqueue_scripts-kroken
+- in_array()
+- date()
