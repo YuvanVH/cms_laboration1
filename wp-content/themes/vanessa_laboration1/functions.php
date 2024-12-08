@@ -89,13 +89,38 @@ function labb1_widgets_init()
   ));
 
   register_sidebar(array(
-    'name'          => __('Footer', 'ditt-tema'),
-    'id'            => 'footer-1',
-    'description'   => __('Footer-widgetområde', 'ditt-tema'),
-    'before_widget' => '<div class="widget">',
+    'name'          => 'Footer Section 1',
+    'id'            => 'footer-section-1',
+    'before_widget' => '<div class="col-xs-12 col-sm-6 col-md-4">',
     'after_widget'  => '</div>',
     'before_title'  => '<h4>',
     'after_title'   => '</h4>',
+  ));
+
+  register_sidebar(array(
+    'name'          => 'Footer Section 2',
+    'id'            => 'footer-section-2',
+    'before_widget' => '<div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4>',
+    'after_title'   => '</h4>',
+  ));
+
+  register_sidebar(array(
+    'name'          => 'Footer Section 3',
+    'id'            => 'footer-section-3',
+    'before_widget' => '<div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h4>',
+    'after_title'   => '</h4>',
+  ));
+  register_sidebar(array(
+    'name'          => 'Footer Copyright',
+    'id'            => 'footer-copyright',
+    'before_widget' => '<div class="row bottom"><div class="col-xs-12">',
+    'after_widget'  => '</div></div>',
+    'before_title'  => '',
+    'after_title'   => '',
   ));
 }
 add_action('widgets_init', 'labb1_widgets_init');
