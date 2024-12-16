@@ -70,6 +70,24 @@ Kursmål kopplade till Labb 1:
 - Självständigt skapa eller vidareutveckla en webbplats i CMS
 - Självständigt administrera en webbplats i WordPress eller Drupal samt hantera användare
 
+Tyvärr har jag inte hunnit färdigställa följande delar av uppgiften:
+
+___6/12__
+
+Det jag inte hinner med:
+
+- Navigationsmenyer som ska kunna styras från wp-admin (Appearance → Menus).
+- Att info i footer och sidebar ska kunna styras från wp-admin (Appearance → Widgets).
+- Att temat inte ska innehålla några bildfiler.
+- Att ingen CSS eller JavaScript får skrivas eller redigeras.
+- Att CSS och JavaScript ska laddas in korrekt med hjälp av wp_enqueue_scripts-kroken.
+
+Tankar: Känns tuft. Jag erkänner att detta resultat beror på flera fel från min sida, såsom:
+
+- Felprioriteringar.
+- En missbedömning av uppgiftens krav.
+- En kombination av stress och överväldigande känslor, som gjorde att jag inte kunde strukturera mina frågor eller söka hjälp i tid.
+
 __Senaste 8/12__
 
 Det jag inte hinner med (svårt att implementera):
@@ -89,3 +107,8 @@ bortagna funtioner och krokar:
 
 - in_array()
 - date()
+
+Återigen, jag ber om ursäkt för förseningen och det misslyckade projektet (att inte lyckas tillämpa allt i projektet). Det här är inte representativt för mig eller mina ambitioner för kursen, och jag hoppas att kunna visa förbättring framöver.
+
+Med vänliga hälsningar,
+Vanessa
